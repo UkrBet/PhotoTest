@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотограф | Портфоліо</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-yellow-400 transition">Головна</a>
+                <a href="#portfolio" class="hover:text-yellow-400 transition">Портфоліо</a>
+                <a href="#about" class="hover:text-yellow-400 transition">Про мене</a>
+                <a href="#services" class="hover:text-yellow-400 transition">Послуги</a>
+                <a href="#contact" class="hover:text-yellow-400 transition">Контакти</a>
+            </nav>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
+            <a href="#home" class="block py-2 hover:text-yellow-400 transition">Головна</a>
+            <a href="#portfolio" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
+            <a href="#about" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
+            <a href="#services" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover -z-10">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4" type="video/mp4">
+        </video>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 animate-fade-in">
+                <span class="text-yellow-400">ЗАХОПЛЮЮЧІ</span> МИТТЄВОСТІ
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-up">
+                Я допомагаю вловити найяскравіші емоції та створити історії, які залишаться з вами назавжди
+            </p>
+            <a href="#portfolio" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105 animate-bounce-in">
+                Дивитись роботи
+            </a>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#portfolio" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОРТФОЛІО</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Останні роботи, які демонструють мій стиль та підхід до фотографії</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Portrait" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОРТРЕТИ</h3>
+                            <p class="text-gray-300 mb-4">Індивідуальні та групові портрети</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?portrait" data-title="ПОРТРЕТИ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?wedding" alt="Wedding" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ВЕСІЛЛЯ</h3>
+                            <p class="text-gray-300 mb-4">Найщасливіші моменти вашого життя</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?wedding" data-title="ВЕСІЛЛЯ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?nature" alt="Nature" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПРИРОДА</h3>
+                            <p class="text-gray-300 mb-4">Краса навколишнього світу</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?nature" data-title="ПРИРОДА">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?fashion" alt="Fashion" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">МОДА</h3>
+                            <p class="text-gray-300 mb-4">Стильні та креативні зйомки</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?fashion" data-title="МОДА">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?travel" alt="Travel" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОДОРОЖІ</h3>
+                            <p class="text-gray-300 mb-4">Неймовірні місця та культури</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?travel" data-title="ПОДОРОЖІ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?event" alt="Event" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОДІЇ</h3>
+                            <p class="text-gray-300 mb-4">Корпоративи, концерти, фестивалі</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?event" data-title="ПОДІЇ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full text-lg transition">
+                    Більше робіт
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://source.unsplash.com/random/600x600/?photographer" alt="Photographer" class="w-full rounded-lg shadow-2xl">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">ПРО МЕНЕ</h2>
+                    <p class="text-gray-400 mb-6">
+                        Привіт! Я професійний фотограф з 8-річним досвідом роботи. Моя страсть - вловлювати справжні емоції та створювати неповторні кадри, які розповідають історії.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        Моя філософія - природність та автентичність. Я не просто роблю фотографії, я створюю образ, який передає вашу унікальність.
+                    </p>
+                    <p class="text-gray-400 mb-8">
+                        Працюю з різними жанрами: портретна зйомка, весільна фотографія, фешн, подорожі та багато іншого. Кожен проект для мене - це новий виклик та можливість створити щось особливе.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
+                            <div class="text-yellow-400 text-3xl font-bold">250+</div>
+                            <div class="text-gray-400">Задоволених клієнтів</div>
+                        </div>
+                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
+                            <div class="text-yellow-400 text-3xl font-bold">8</div>
+                            <div class="text-gray-400">Років досвіду</div>
+                        </div>
+                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
+                            <div class="text-yellow-400 text-3xl font-bold">15+</div>
+                            <div class="text-gray-400">Міжнародних проектів</div>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
+                        Моя історія
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОСЛУГИ</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Я пропоную широкий спектр послуг для різних потреб та подій</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ВЕСІЛЬНА ФОТОГРАФІЯ</h3>
+                    <p class="text-gray-400 mb-6">
+                        Професійна зйомка вашого особливого дня. Вловлюю найщиріші емоції та створю атмосферу свята.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">від 5000 грн</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ПОРТРЕТНА ЗЙОМКА</h3>
+                    <p class="text-gray-400 mb-6">
+                        Індивідуальні та групові портрети, які підкреслять вашу індивідуальність та характер.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">від 2000 грн</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ФЕШЕН ЗЙОМКА</h3>
+                    <p class="text-gray-400 mb-6">
+                        Креативні зйомки для брендів, модельних агенцій та індивідуальних проектів.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">від 3000 грн</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ПОДОРОЖІ ТА ПРИРОДА</h3>
+                    <p class="text-gray-400 mb-6">
+                        Зйомка пейзажів, мандрівок та пригод. Створюю атмосферні фото-історії ваших подорожей.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">від 2500 грн</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">КОРПОРАТИВИ ТА ПОДІЇ</h3>
+                    <p class="text-gray-400 mb-6">
+                        Професійна зйомка корпоративів, конференцій, концертів та інших заходів.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">від 4000 грн</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-black p-8 rounded-lg hover:shadow-yellow-400 hover:shadow-lg transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ІНДИВІДУАЛЬНІ ПРОЕКТИ</h3>
+                    <p class="text-gray-400 mb-6">
+                        Розробка та реалізація індивідуальних фото-проектів за вашими побажаннями.
+                    </p>
+                    <div class="text-yellow-400 text-xl font-bold mb-4">індивідуально</div>
+                    <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        Детальніше
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">ВІДГУКИ КЛІЄНТІВ</h2>
+            
+            <div class="testimonials-slider relative">
+                <div class="testimonial active">
+                    <div class="bg-gray-900 p-8 rounded-lg max-w-3xl mx-auto">
+                        <div class="flex items-center mb-6">
+                            <img src="https://source.unsplash.com/random/100x100/?woman" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Олена Коваленко</h4>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Робота з цим фотографом - це справжнє задоволення! Він вміє знайти правильний ракурс і підкреслити природну красу. Мої весільні фото вийшли просто чарівними - всі гості в захваті!"
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="testimonial hidden">
+                    <div class="bg-gray-900 p-8 rounded-lg max-w-3xl mx-auto">
+                        <div class="flex items-center mb-6">
+                            <img src="https://source.unsplash.com/random/100x100/?man" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Андрій Петренко</h4>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Замовляли корпоративну зйомку для нашої компанії. Фотограф зумів передати атмосферу нашого колективу та зробити якісні фото для сайту. Дуже професійний підхід та приємне спілкування!"
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="testimonial hidden">
+                    <div class="bg-gray-900 p-8 rounded-lg max-w-3xl mx-auto">
+                        <div class="flex items-center mb-6">
+                            <img src="https://source.unsplash.com/random/100x100/?girl" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Марія Сидоренко</h4>
+                                <div class="text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Дуже задоволена індивідуальною портретною зйомкою! Фотограф створив комфортну атмосферу, допоміг розслабитися, і в результаті отримала чудові фото, якими пишаюся. Рекомендую всім!"
+                        </p>
+                    </div>
+                </div>
+                
+                <button class="testimonial-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-yellow-400 text-black p-2 rounded-full focus:outline-none">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-yellow-400 text-black p-2 rounded-full focus:outline-none">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none active"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ЗВ'ЯЖІТЬСЯ ЗІ МНОЮ</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Готовий створити для вас неповторні фотографії. Заповніть форму або зв'яжіться безпосередньо</p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Ваше ім'я</label>
+                            <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-300 mb-2">Телефон</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-gray-300 mb-2">Послуга</label>
+                            <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                                <option value="">Оберіть послугу</option>
+                                <option value="wedding">Весільна фотографія</option>
+                                <option value="portrait">Портретна зйомка</option>
+                                <option value="fashion">Фешен зйомка</option>
+                                <option value="travel">Подорожі та природа</option>
+                                <option value="event">Корпоративи та події</option>
+                                <option value="other">Інше</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Повідомлення</label>
+                            <textarea id="message" rows="5" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
+                            Надіслати
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-black p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">КОНТАКТНА ІНФОРМАЦІЯ</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Адреса</h4>
+                                    <p class="text-gray-400">м. Київ, вул. Хрещатик, 1</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Телефон</h4>
+                                    <p class="text-gray-400">+380 50 123 4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="text-gray-400">photovision@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Години роботи</h4>
+                                    <p class="text-gray-400">Пн-Пт: 9:00 - 18:00</p>
+                                    <p class="text-gray-400">Сб-Нд: за домовленістю</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Соціальні мережі</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-4xl w-full mx-4">
+            <button id="closeModal" class="absolute -top-12 right-0 text-white text-3xl focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="" class="w-full rounded-lg">
+            <h3 id="modalTitle" class="text-white text-2xl font-bold mt-4"></h3>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
+                    <a href="#portfolio" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="#about" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
+                    <a href="#services" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
+                    <a href="#contact" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>Слава Україні! Героям слава! 🇺🇦</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

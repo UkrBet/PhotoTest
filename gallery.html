@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея | Олександр Коваль</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="libs/aos/aos.css">
+</head>
+<body class="light-theme">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/logo.svg" alt="Логотип фотографа">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="gallery.html" class="active">Галерея</a></li>
+                    <li><a href="about.html">Про мене</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Перемикач теми">
+                <span class="toggle-icon"></span>
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Мобільне меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="scroll-progress"></div>
+
+    <main>
+        <section class="gallery-header">
+            <div class="container">
+                <h1 data-aos="fade-up">Мої роботи</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Останні фотографії з моїх проектів</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-filters" data-aos="fade-up">
+                    <button class="filter-btn active" data-filter="all">Всі</button>
+                    <button class="filter-btn" data-filter="portraits" id="portraits">Портрети</button>
+                    <button class="filter-btn" data-filter="nature">Природа</button>
+                    <button class="filter-btn" data-filter="wedding">Весілля</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="portraits" data-aos="fade-up">
+                        <img src="assets/images/gallery/portrait1.jpg" alt="Портрет 1" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/portrait1.jpg" data-title="Портретна фотосесія">Переглянути</button>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="portraits" data-aos="fade-up">
+                        <img src="assets/images/gallery/portrait2.jpg" alt="Портрет 2" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/portrait2.jpg" data-title="Чоловічий портрет">Переглянути</button>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="nature" data-aos="fade-up">
+                        <img src="assets/images/gallery/nature1.jpg" alt="Природа 1" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/nature1.jpg" data-title="Лісовий пейзаж">Переглянути</button>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="nature" data-aos="fade-up">
+                        <img src="assets/images/gallery/nature2.jpg" alt="Природа 2" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/nature2.jpg" data-title="Гірський краєвид">Переглянути</button>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="wedding" data-aos="fade-up">
+                        <img src="assets/images/gallery/wedding1.jpg" alt="Весілля 1" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/wedding1.jpg" data-title="Весілля на березі">Переглянути</button>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="wedding" data-aos="fade-up">
+                        <img src="assets/images/gallery/wedding2.jpg" alt="Весілля 2" loading="lazy">
+                        <div class="overlay">
+                            <button class="view-btn" data-image="assets/images/gallery/wedding2.jpg" data-title="Перший танець">Переглянути</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container" data-aos="zoom-in">
+                <h2>Хочете такий же результат?</h2>
+                <p>Замовте фотосесію вже сьогодні!</p>
+                <a href="contact.html" class="btn">Зв'язатися зі мною</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn">&times;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+            <button class="prev-btn">&larr;</button>
+            <button class="next-btn">&rarr;</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="assets/icons/logo.svg" alt="Логотип фотографа">
+                <p>Олександр Коваль<br>Фотограф</p>
+            </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="about.html">Про мене</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+                <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Олександр Коваль. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Нагору">&uarr;</a>
+
+    <script src="libs/aos/aos.js"></script>
+    <script src="js/preload.js"></script>
+    <script src="js/themeToggle.js"></script>
+    <script src="js/scrollProgress.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
