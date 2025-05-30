@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотограф | Портфоліо</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans">
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-yellow-400 transition">Головна</a>
+                <a href="portfolio.html" class="hover:text-yellow-400 transition">Портфоліо</a>
+                <a href="about.html" class="hover:text-yellow-400 transition">Про мене</a>
+                <a href="services.html" class="hover:text-yellow-400 transition">Послуги</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition">Контакти</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
+            <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
+            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
+            <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
+            <a href="services.html" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
+            <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
+        </div>
+    </header>
+
+    <section class="py-20 bg-gray-900 min-h-screen pt-32">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОРТФОЛІО</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Останні роботи, які демонструють мій стиль та підхід до фотографії</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Portrait" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОРТРЕТИ</h3>
+                            <p class="text-gray-300 mb-4">Індивідуальні та групові портрети</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?portrait" data-title="ПОРТРЕТИ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?wedding" alt="Wedding" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ВЕСІЛЛЯ</h3>
+                            <p class="text-gray-300 mb-4">Найщасливіші моменти вашого життя</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?wedding" data-title="ВЕСІЛЛЯ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?nature" alt="Nature" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПРИРОДА</h3>
+                            <p class="text-gray-300 mb-4">Краса навколишнього світу</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?nature" data-title="ПРИРОДА">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?fashion" alt="Fashion" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">МОДА</h3>
+                            <p class="text-gray-300 mb-4">Стильні та креативні зйомки</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?fashion" data-title="МОДА">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?travel" alt="Travel" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОДОРОЖІ</h3>
+                            <p class="text-gray-300 mb-4">Неймовірні місця та культури</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?travel" data-title="ПОДОРОЖІ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative group overflow-hidden rounded-lg">
+                    <img src="https://source.unsplash.com/random/600x600/?event" alt="Event" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2">ПОДІЇ</h3>
+                            <p class="text-gray-300 mb-4">Корпоративи, концерти, фестивалі</p>
+                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?event" data-title="ПОДІЇ">Детальніше</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full text-lg transition">
+                    Більше робіт
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-4xl w-full mx-4">
+            <button id="closeModal" class="absolute -top-12 right-0 text-white text-3xl focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="" class="w-full rounded-lg">
+            <h3 id="modalTitle" class="text-white text-2xl font-bold mt-4"></h3>
+        </div>
+    </div>
+
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="about.html" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
+                    <a href="services.html" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

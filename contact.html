@@ -3,170 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти | Олександр Коваль</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="libs/aos/aos.css">
+    <title>Фотограф | Контакти</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="light-theme">
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
+<body class="bg-black text-white font-sans">
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
 
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/icons/logo.svg" alt="Логотип фотографа">
-            </a>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="gallery.html">Галерея</a></li>
-                    <li><a href="about.html">Про мене</a></li>
-                    <li><a href="contact.html" class="active">Контакти</a></li>
-                </ul>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-yellow-400 transition">Головна</a>
+                <a href="portfolio.html" class="hover:text-yellow-400 transition">Портфоліо</a>
+                <a href="about.html" class="hover:text-yellow-400 transition">Про мене</a>
+                <a href="services.html" class="hover:text-yellow-400 transition">Послуги</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition">Контакти</a>
             </nav>
-            <button class="theme-toggle" aria-label="Перемикач теми">
-                <span class="toggle-icon"></span>
+
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
-            <button class="mobile-menu-toggle" aria-label="Мобільне меню">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
+            <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
+            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
+            <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
+            <a href="services.html" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
+            <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
-    <div class="scroll-progress"></div>
+    <section class="py-20 bg-gray-900 min-h-screen pt-32">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ЗВ'ЯЖІТЬСЯ ЗІ МНОЮ</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Готовий створити для вас неповторні фотографії. Заповніть форму або зв'яжіться безпосередньо</p>
 
-    <main>
-        <section class="contact-header">
-            <div class="container">
-                <h1 data-aos="fade-up">Контакти</h1>
-                <p data-aos="fade-up" data-aos-delay="100">Зв'яжіться зі мною для обговорення вашого проекту</p>
-            </div>
-        </section>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Ваше ім'я</label>
+                            <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
 
-        <section class="contact-section">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info" data-aos="fade-right">
-                        <h2>Контактна інформація</h2>
-                        <p>Я завжди відкритий для нових проектів та співпраці. Зв'яжіться зі мною будь-яким зручним для вас способом.</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <h3>Адреса</h3>
-                                <p>м. Київ, вул. Хрещатик, 25</p>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-gray-300 mb-2">Телефон</label>
+                            <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-gray-300 mb-2">Послуга</label>
+                            <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400">
+                                <option value="">Оберіть послугу</option>
+                                <option value="wedding">Весільна фотографія</option>
+                                <option value="portrait">Портретна зйомка</option>
+                                <option value="fashion">Фешен зйомка</option>
+                                <option value="travel">Подорожі та природа</option>
+                                <option value="event">Корпоративи та події</option>
+                                <option value="other">Інше</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Повідомлення</label>
+                            <textarea id="message" rows="5" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-400"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
+                            Надіслати
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="bg-black p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">КОНТАКТНА ІНФОРМАЦІЯ</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Адреса</h4>
+                                    <p class="text-gray-400">м. Київ, вул. Хрещатик, 1</p>
+                                </div>
                             </div>
-                            <div class="contact-item">
-                                <h3>Телефон</h3>
-                                <p><a href="tel:+380501234567">+38 (050) 123 45 67</a></p>
+
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Телефон</h4>
+                                    <p class="text-gray-400">+380 50 123 4567</p>
+                                </div>
                             </div>
-                            <div class="contact-item">
-                                <h3>Email</h3>
-                                <p><a href="mailto:hello@kovalphoto.com">hello@kovalphoto.com</a></p>
+
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="text-gray-400">photovision@gmail.com</p>
+                                </div>
                             </div>
-                            <div class="contact-item">
-                                <h3>Соціальні мережі</h3>
-                                <div class="social-links">
-                                    <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-                                    <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
-                                    <a href="#" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+
+                            <div class="flex items-start">
+                                <div class="text-yellow-400 text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Години роботи</h4>
+                                    <p class="text-gray-400">Пн-Пт: 9:00 - 18:00</p>
+                                    <p class="text-gray-400">Сб-Нд: за домовленістю</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="contact-form" data-aos="fade-left">
-                        <h2>Написати мені</h2>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Ім'я</label>
-                                <input type="text" id="name" name="name" required>
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Соціальні мережі</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Тема</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Повідомлення</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn">Надіслати</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="map-section">
-            <div class="container" data-aos="fade-up">
-                <h2>Я на мапі</h2>
-                <div class="map-container">
-                    <img src="assets/images/map.jpg" alt="Карта з місцезнаходженням" loading="lazy" class="map-image">
-                    <div class="map-marker"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container" data-aos="zoom-in">
-                <h2>Готові до фотосесії?</h2>
-                <p>Залиште заявку і я зв'яжуся з вами для обговорення деталей.</p>
-                <a href="#contactForm" class="btn">Залишити заявку</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <img src="assets/icons/logo.svg" alt="Логотип фотографа">
-                <p>Олександр Коваль<br>Фотограф</p>
-            </div>
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="index.html">Головна</a></li>
-                    <li><a href="gallery.html">Галерея</a></li>
-                    <li><a href="about.html">Про мене</a></li>
-                    <li><a href="contact.html">Контакти</a></li>
-                </ul>
-            </nav>
-            <div class="social-links">
-                <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-                <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt="Facebook"></a>
-                <a href="#" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2023 Олександр Коваль. Всі права захищені.</p>
+    </section>
+
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="about.html" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
+                    <a href="services.html" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <a href="#" class="back-to-top" aria-label="Нагору">&uarr;</a>
-
-    <script src="libs/aos/aos.js"></script>
-    <script src="js/preload.js"></script>
-    <script src="js/themeToggle.js"></script>
-    <script src="js/scrollProgress.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Дякуємо за ваше повідомлення! Я зв\'яжуся з вами найближчим часом.');
-            this.reset();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

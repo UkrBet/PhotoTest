@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Here you would typically send the form data to a server
             alert('Дякуємо за ваше повідомлення! Я зв\'яжуся з вами найближчим часом.');
             this.reset();
         });
