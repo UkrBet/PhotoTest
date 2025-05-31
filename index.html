@@ -3,25 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фотограф | Головна</title>
+    <title>PHOTOVISION | Професійна фотографія</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .hero-video {
+            filter: brightness(0.7);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
+
 <body class="bg-black text-white font-sans">
     <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+            <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+            </a>
 
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-yellow-400 transition">Головна</a>
-                <a href="portfolio.html" class="hover:text-yellow-400 transition">Портфоліо</a>
-                <a href="about.html" class="hover:text-yellow-400 transition">Про мене</a>
-                <a href="services.html" class="hover:text-yellow-400 transition">Послуги</a>
-                <a href="contact.html" class="hover:text-yellow-400 transition">Контакти</a>
+                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Головна</a>
+                <a href="portfolio.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Галерея & Послуги</a>
+                <a href="about.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Про мене</a>
+                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Контакти</a>
             </nav>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -31,57 +87,171 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
             <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
-            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
+            <a href="portfolio.html" class="block py-2 text-yellow-400 transition">Роботи</a>
             <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
-            <a href="services.html" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
             <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover -z-10">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover hero-video">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4" type="video/mp4">
         </video>
 
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 animate-fade-in">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
                 <span class="text-yellow-400">ЗАХОПЛЮЮЧІ</span> МИТТЄВОСТІ
             </h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in-up">
                 Я допомагаю вловити найяскравіші емоції та створити історії, які залишаться з вами назавжди
             </p>
-            <a href="portfolio.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105 animate-bounce-in">
-                Дивитись роботи
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="portfolio.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                    Подивитись роботи
+                </a>
+                <a href="contact.html" class="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full text-lg transition">
+                    Замовити зйомку
+                </a>
+            </div>
         </div>
 
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#portfolio" class="text-white text-2xl">
+            <a href="#features" class="text-white text-2xl">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
     </section>
 
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ЧОМУ ОБИРАЮТЬ МЕНЕ</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Професійний підхід та індивідуальна робота з кожним клієнтом</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-800 p-8 rounded-lg transition duration-300">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ВИСОКА ЯКІСТЬ</h3>
+                    <p class="text-gray-300">Професійне обладнання та обробка фото. Використовую тільки топову техніку для ідеального результату.</p>
+                </div>
+
+                <div class="feature-card bg-gray-800 p-8 rounded-lg transition duration-300">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ІНДИВІДУАЛЬНИЙ ПІДХІД</h3>
+                    <p class="text-gray-300">Кожна зйомка - унікальна. Працюю над створенням вашого особливого стилю та образу.</p>
+                </div>
+
+                <div class="feature-card bg-gray-800 p-8 rounded-lg transition duration-300">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ШВИДКІСТЬ</h3>
+                    <p class="text-gray-300">Готові фото вже через 3-5 днів після зйомки. Швидко, але без втрати якості.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center mb-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">ОСТАННІ РОБОТИ</h2>
+                    <p class="text-gray-400 mb-6">Погляньте на мої останні проекти. Кожна фотосесія - це унікальна історія.</p>
+                    <a href="portfolio.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                        Вся галерея
+                    </a>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="overflow-hidden rounded-lg animate-float" style="animation-delay: 0s;">
+                        <img src="https://source.unsplash.com/random/600x600/?wedding" alt="Wedding" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg animate-float" style="animation-delay: 0.3s;">
+                        <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Portrait" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg animate-float" style="animation-delay: 0.6s;">
+                        <img src="https://source.unsplash.com/random/600x600/?fashion" alt="Fashion" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg animate-float" style="animation-delay: 0.9s;">
+                        <img src="https://source.unsplash.com/random/600x600/?nature" alt="Nature" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">ГОТОВІ ДО СПІВПРАЦІ?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Залиште заявку і я зв'яжусь з вами для обговорення деталей</p>
+            <a href="contact.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                Замовити зйомку
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                        <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+                    </a>
                     <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
                 </div>
 
-                <div class="flex space-x-6">
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
                     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
-                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Галерея & Послуги</a>
                     <a href="about.html" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
-                    <a href="services.html" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
                     <a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

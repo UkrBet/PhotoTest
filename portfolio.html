@@ -3,25 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фотограф | Портфоліо</title>
+    <title>Фотограф | Роботи & Послуги</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Common Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Portfolio Specific Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            grid-gap: 15px;
+            grid-auto-flow: dense;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .collection-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            background-color: #111;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #f59e0b;
+            color: #000;
+        }
+
+        .photo-frame {
+            border: 10px solid #1a1a1a;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2);
+        }
+    </style>
 </head>
 <body class="bg-black text-white font-sans">
     <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+            <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+            </a>
 
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-yellow-400 transition">Головна</a>
-                <a href="portfolio.html" class="hover:text-yellow-400 transition">Портфоліо</a>
-                <a href="about.html" class="hover:text-yellow-400 transition">Про мене</a>
-                <a href="services.html" class="hover:text-yellow-400 transition">Послуги</a>
-                <a href="contact.html" class="hover:text-yellow-400 transition">Контакти</a>
+                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Головна</a>
+                <a href="portfolio.html" class="nav-link text-yellow-400 font-bold transition">Галерея & Послуги</a>
+                <a href="about.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Про мене</a>
+                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Контакти</a>
             </nav>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -31,123 +158,343 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
             <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
-            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
+            <a href="portfolio.html" class="block py-2 text-yellow-400 transition">Галерея & Послуги</a>
             <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
-            <a href="services.html" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
             <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
-    <section class="py-20 bg-gray-900 min-h-screen pt-32">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОРТФОЛІО</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Останні роботи, які демонструють мій стиль та підхід до фотографії</p>
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="relative py-20 collection-header">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0" style="background-image: url('assets/photos/portfolio_back.png');"></div>
+            <div class="relative z-10 container mx-auto px-4 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Мої роботи</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Кожна фотосесія - це унікальна історія, яку я допомагаю розповісти</p>
+            </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?portrait" alt="Portrait" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">ПОРТРЕТИ</h3>
-                            <p class="text-gray-300 mb-4">Індивідуальні та групові портрети</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?portrait" data-title="ПОРТРЕТИ">Детальніше</button>
+        <!-- Collections Navigation -->
+        <section class="py-8 bg-gray-900 sticky top-0 z-30 shadow-lg">
+            <div class="container mx-auto px-4">
+                <div class="flex overflow-x-auto space-x-4 pb-2 scrollbar-hide">
+                    <button class="filter-btn active px-6 py-2 bg-yellow-400 text-black font-bold rounded-full whitespace-nowrap" data-category="all">
+                        Усі роботи
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="wedding">
+                        Весільні зйомки
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="portrait">
+                        Портрети
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="fashion">
+                        Фешн
+                    </button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="travel">
+                        Подорожі
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections Gallery -->
+        <section class="py-16 bg-black">
+            <div class="container mx-auto px-4">
+                <!-- Wedding Collection -->
+                <div class="mb-20" data-category="wedding">
+                    <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
+                        <div class="md:w-1/2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Весільна фотосесія</h2>
+                            <p class="text-gray-300 mb-6">Ніжні та емоційні кадри вашого особливого дня. Я допомагаю зберегти найщасливіші моменти вашого весілля.</p>
+                            <div class="flex items-center">
+                                <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Весільна фотографія</span>
+                                <span class="text-gray-400">25 фото</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="photo-frame rounded-lg overflow-hidden">
+                                <img src="assets/photos/portfolio_back.png" alt="Wedding" class="w-full h-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?wedding,1" alt="Wedding 1" class="gallery-img">
+                        </div>
+                        <div class="gallery-item tall">
+                            <img src="https://source.unsplash.com/random/600x800/?wedding,2" alt="Wedding 2" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?wedding,3" alt="Wedding 3" class="gallery-img">
+                        </div>
+                        <div class="gallery-item wide">
+                            <img src="https://source.unsplash.com/random/1200x400/?wedding,4" alt="Wedding 4" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?wedding,5" alt="Wedding 5" class="gallery-img">
+                        </div>
+                        <div class="gallery-item large">
+                            <img src="https://source.unsplash.com/random/1200x800/?wedding,6" alt="Wedding 6" class="gallery-img">
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?wedding" alt="Wedding" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">ВЕСІЛЛЯ</h3>
-                            <p class="text-gray-300 mb-4">Найщасливіші моменти вашого життя</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?wedding" data-title="ВЕСІЛЛЯ">Детальніше</button>
+                <!-- Portrait Collection -->
+                <div class="mb-20" data-category="portrait">
+                    <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
+                        <div class="md:w-1/2">
+                            <div class="photo-frame rounded-lg overflow-hidden">
+                                <img src="https://source.unsplash.com/random/800x500/?portrait" alt="Portrait" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Портретна зйомка</h2>
+                            <p class="text-gray-300 mb-6">Індивідуальні портрети, які розкривають характер та індивідуальність. Ідеально для профілів у соцмережах або особистого архіву.</p>
+                            <div class="flex items-center">
+                                <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Портрет</span>
+                                <span class="text-gray-400">18 фото</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-item tall">
+                            <img src="https://source.unsplash.com/random/600x800/?portrait,1" alt="Portrait 1" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?portrait,2" alt="Portrait 2" class="gallery-img">
+                        </div>
+                        <div class="gallery-item wide">
+                            <img src="https://source.unsplash.com/random/1200x400/?portrait,3" alt="Portrait 3" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?portrait,4" alt="Portrait 4" class="gallery-img">
+                        </div>
+                        <div class="gallery-item large">
+                            <img src="https://source.unsplash.com/random/1200x800/?portrait,5" alt="Portrait 5" class="gallery-img">
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?nature" alt="Nature" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">ПРИРОДА</h3>
-                            <p class="text-gray-300 mb-4">Краса навколишнього світу</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?nature" data-title="ПРИРОДА">Детальніше</button>
+                <!-- Fashion Collection -->
+                <div class="mb-20" data-category="fashion">
+                    <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
+                        <div class="md:w-1/2">
+                            <div class="photo-frame rounded-lg overflow-hidden">
+                                <img src="https://source.unsplash.com/random/800x500/?fashion" alt="Fashion" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Фешн-зйомка</h2>
+                            <p class="text-gray-300 mb-6">Стильні та креативні зйомки для брендів одягу, аксесуарів або персональних проектів.</p>
+                            <div class="flex items-center">
+                                <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Фешн</span>
+                                <span class="text-gray-400">22 фото</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?fashion,1" alt="Fashion 1" class="gallery-img">
+                        </div>
+                        <div class="gallery-item large">
+                            <img src="https://source.unsplash.com/random/1200x800/?fashion,2" alt="Fashion 2" class="gallery-img">
+                        </div>
+                        <div class="gallery-item tall">
+                            <img src="https://source.unsplash.com/random/600x800/?fashion,3" alt="Fashion 3" class="gallery-img">
+                        </div>
+                        <div class="gallery-item wide">
+                            <img src="https://source.unsplash.com/random/1200x400/?fashion,4" alt="Fashion 4" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?fashion,5" alt="Fashion 5" class="gallery-img">
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?fashion" alt="Fashion" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">МОДА</h3>
-                            <p class="text-gray-300 mb-4">Стильні та креативні зйомки</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?fashion" data-title="МОДА">Детальніше</button>
+                <!-- Travel Collection -->
+                <div class="mb-20" data-category="travel">
+                    <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
+                        <div class="md:w-1/2">
+                            <div class="photo-frame rounded-lg overflow-hidden">
+                                <img src="https://source.unsplash.com/random/800x500/?travel" alt="Travel" class="w-full h-auto">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Подорожі та природа</h2>
+                            <p class="text-gray-300 mb-6">Неймовірні краєвиди та атмосферні кадри з подорожей по Україні та світу.</p>
+                            <div class="flex items-center">
+                                <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Подорожі</span>
+                                <span class="text-gray-400">30 фото</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?travel" alt="Travel" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">ПОДОРОЖІ</h3>
-                            <p class="text-gray-300 mb-4">Неймовірні місця та культури</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?travel" data-title="ПОДОРОЖІ">Детальніше</button>
+                    <div class="gallery-grid">
+                        <div class="gallery-item wide">
+                            <img src="https://source.unsplash.com/random/1200x400/?travel,1" alt="Travel 1" class="gallery-img">
                         </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item relative group overflow-hidden rounded-lg">
-                    <img src="https://source.unsplash.com/random/600x600/?event" alt="Event" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="text-center p-4">
-                            <h3 class="text-2xl font-bold mb-2">ПОДІЇ</h3>
-                            <p class="text-gray-300 mb-4">Корпоративи, концерти, фестивалі</p>
-                            <button class="view-more-btn" data-image="https://source.unsplash.com/random/600x600/?event" data-title="ПОДІЇ">Детальніше</button>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?travel,2" alt="Travel 2" class="gallery-img">
+                        </div>
+                        <div class="gallery-item tall">
+                            <img src="https://source.unsplash.com/random/600x800/?travel,3" alt="Travel 3" class="gallery-img">
+                        </div>
+                        <div class="gallery-item large">
+                            <img src="https://source.unsplash.com/random/1200x800/?travel,4" alt="Travel 4" class="gallery-img">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://source.unsplash.com/random/600x400/?travel,5" alt="Travel 5" class="gallery-img">
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="text-center mt-12">
-                <button class="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full text-lg transition">
-                    Більше робіт
-                </button>
+        <!-- Services Section -->
+        <section class="py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОСЛУГИ</h2>
+                <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Я пропоную професійні фотосесії для різних подій та потреб</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card p-8 rounded-lg">
+                        <div class="text-yellow-400 text-4xl mb-4">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">ВЕСІЛЬНА ФОТОГРАФІЯ</h3>
+                        <p class="text-gray-400 mb-6">
+                            Повний супровід вашого весілля від ранкових приготувань до першого танцю
+                        </p>
+                        <div class="text-yellow-400 text-xl font-bold mb-4">від 5000 грн</div>
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                            Детальніше
+                        </button>
+                    </div>
+
+                    <div class="service-card p-8 rounded-lg">
+                        <div class="text-yellow-400 text-4xl mb-4">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">ПОРТРЕТНА ЗЙОМКА</h3>
+                        <p class="text-gray-400 mb-6">
+                            Індивідуальні та групові портрети в студії або на природі
+                        </p>
+                        <div class="text-yellow-400 text-xl font-bold mb-4">від 2000 грн</div>
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                            Детальніше
+                        </button>
+                    </div>
+
+                    <div class="service-card p-8 rounded-lg">
+                        <div class="text-yellow-400 text-4xl mb-4">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">ФЕШЕН ЗЙОМКА</h3>
+                        <p class="text-gray-400 mb-6">
+                            Професійні зйомки для брендів одягу, аксесуарів та lookbook'ів
+                        </p>
+                        <div class="text-yellow-400 text-xl font-bold mb-4">від 3000 грн</div>
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                            Детальніше
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
-        <div class="relative max-w-4xl w-full mx-4">
-            <button id="closeModal" class="absolute -top-12 right-0 text-white text-3xl focus:outline-none">
-                <i class="fas fa-times"></i>
-            </button>
-            <img id="modalImage" src="" alt="" class="w-full rounded-lg">
-            <h3 id="modalTitle" class="text-white text-2xl font-bold mt-4"></h3>
-        </div>
-    </div>
+        <!-- CTA Section -->
+        <section class="py-20 bg-black">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">ГОТОВІ ДО СПІВПРАЦІ?</h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Залиште заявку і я зв'яжусь з вами для обговорення деталей</p>
+                <a href="contact.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                    Замовити зйомку
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-black py-12">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                        <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+                    </a>
                     <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
                 </div>
 
-                <div class="flex space-x-6">
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
                     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
-                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Галерея & Послуги</a>
                     <a href="about.html" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
-                    <a href="services.html" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
                     <a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Filter collections
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('bg-yellow-400', 'text-black');
+                    btn.classList.add('bg-gray-800', 'text-white');
+                });
+                this.classList.remove('bg-gray-800', 'text-white');
+                this.classList.add('bg-yellow-400', 'text-black');
+
+                // Filter collections
+                document.querySelectorAll('[data-category]').forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>

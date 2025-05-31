@@ -6,22 +6,23 @@
     <title>Фотограф | Про мене</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-black text-white font-sans">
     <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+            <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+            </a>
 
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="hover:text-yellow-400 transition">Головна</a>
-                <a href="portfolio.html" class="hover:text-yellow-400 transition">Портфоліо</a>
-                <a href="about.html" class="hover:text-yellow-400 transition">Про мене</a>
-                <a href="services.html" class="hover:text-yellow-400 transition">Послуги</a>
-                <a href="contact.html" class="hover:text-yellow-400 transition">Контакти</a>
+                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Головна</a>
+                <a href="portfolio.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Галерея & Послуги</a>
+                <a href="about.html" class="nav-link text-yellow-400 font-bold transition">Про мене</a>
+                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Контакти</a>
             </nav>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -31,66 +32,90 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
             <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
-            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Портфоліо</a>
-            <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
-            <a href="services.html" class="block py-2 hover:text-yellow-400 transition">Послуги</a>
+            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Галерея & Послуги</a>
+            <a href="about.html" class="block py-2 text-yellow-400 transition">Про мене</a>
             <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
-    <section class="py-20 bg-black min-h-screen pt-32">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <img src="https://source.unsplash.com/random/600x600/?photographer" alt="Photographer" class="w-full rounded-lg shadow-2xl">
+    <main class="pt-16"> <section class="relative py-32 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute inset-0 bg-black"></div>
+                <img src="assets/photos/portfolio_back.png" alt="Background" class="w-full h-full object-cover opacity-70">
+            </div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Моя історія</h1>
+                    <p class="text-xl text-gray-300 mb-8">Професійний фотограф з любов'ю до мистецтва та деталей</p>
+                    <a href="contact.html" class="btn-glow bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg inline-block transition duration-300">
+                        Напишіть мені
+                    </a>
                 </div>
+            </div>
+        </section>
 
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">ПРО МЕНЕ</h2>
-                    <p class="text-gray-400 mb-6">
-                        Привіт! Я професійний фотограф з 8-річним досвідом роботи. Моя страсть - вловлювати справжні емоції та створювати неповторні кадри, які розповідають історії.
-                    </p>
-                    <p class="text-gray-400 mb-6">
-                        Моя філософія - природність та автентичність. Я не просто роблю фотографії, я створюю образ, який передає вашу унікальність.
-                    </p>
-                    <p class="text-gray-400 mb-8">
-                        Працюю з різними жанрами: портретна зйомка, весільна фотографія, фешн, подорожі та багато іншого. Кожен проект для мене - це новий виклик та можливість створити щось особливе.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
-                            <div class="text-yellow-400 text-3xl font-bold">250+</div>
-                            <div class="text-gray-400">Задоволених клієнтів</div>
-                        </div>
-                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
-                            <div class="text-yellow-400 text-3xl font-bold">8</div>
-                            <div class="text-gray-400">Років досвіду</div>
-                        </div>
-                        <div class="bg-gray-900 px-6 py-4 rounded-lg">
-                            <div class="text-yellow-400 text-3xl font-bold">15+</div>
-                            <div class="text-gray-400">Міжнародних проектів</div>
+        <section class="py-20 bg-black" id="about">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="photo-frame rounded-lg overflow-hidden">
+                            <img src="https://source.unsplash.com/random/600x800/?photographer,portrait" alt="Photographer" class="w-full h-auto">
                         </div>
                     </div>
 
-                    <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition transform hover:scale-105">
-                        Моя історія
-                    </button>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-yellow-400">Хто я?</h2>
+                        <p class="text-gray-300 mb-6 text-lg">
+                            Привіт! Мене звати Олексій, і я професійний фотограф з Києва. Моя подорож у світ фотографії почалася 8 років тому, коли я вперше взяв у руки камеру і зрозумів, що це моє покликання.
+                        </p>
+                        <p class="text-gray-300 mb-6">
+                            Я спеціалізуюся на портретній, весільній та комерційній фотографії. Моя мета - не просто зробити гарні фото, а створити образи, які передають емоції, розповідають історії та залишаються у пам'яті надовго.
+                        </p>
+                        <p class="text-gray-300 mb-8">
+                            Кожен мій проект - це унікальна можливість зазирнути у світ клієнта, зрозуміти його бачення та втілити його у фотографіях. Я вірю, що справжня фотографія - це поєднання технічної майстерності та художнього бачення.
+                        </p>
+
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-gray-900 p-4 rounded-lg text-center">
+                                <div class="text-yellow-400 text-3xl font-bold mb-2">250+</div>
+                                <div class="text-gray-400 text-sm">Задоволених клієнтів</div>
+                            </div>
+                            <div class="bg-gray-900 p-4 rounded-lg text-center">
+                                <div class="text-yellow-400 text-3xl font-bold mb-2">8</div>
+                                <div class="text-gray-400 text-sm">Років досвіду</div>
+                            </div>
+                            <div class="bg-gray-900 p-4 rounded-lg text-center">
+                                <div class="text-yellow-400 text-3xl font-bold mb-2">15+</div>
+                                <div class="text-gray-400 text-sm">Країн</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="contact.html" class="btn-glow bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                                Замовити зйомку
+                            </a>
+                            <a href="portfolio.html" class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                                Мої роботи
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">ВІДГУКИ КЛІЄНТІВ</h2>
+        <section class="py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Відгуки клієнтів</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Що говорять люди про співпрацю зі мною</p>
+                </div>
 
-            <div class="testimonials-slider relative">
-                <div class="testimonial active">
-                    <div class="bg-black p-8 rounded-lg max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card bg-black p-8 rounded-lg">
                         <div class="flex items-center mb-6">
-                            <img src="https://source.unsplash.com/random/100x100/?woman" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <img src="https://source.unsplash.com/random/100x100/?woman,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
-                                <h4 class="text-xl font-bold">Олена Коваленко</h4>
+                                <h4 class="text-xl font-bold text-white">Олена Коваленко</h4>
                                 <div class="text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -104,14 +129,12 @@
                             "Робота з цим фотографом - це справжнє задоволення! Він вміє знайти правильний ракурс і підкреслити природну красу. Мої весільні фото вийшли просто чарівними - всі гості в захваті!"
                         </p>
                     </div>
-                </div>
 
-                <div class="testimonial hidden">
-                    <div class="bg-black p-8 rounded-lg max-w-3xl mx-auto">
+                    <div class="testimonial-card bg-black p-8 rounded-lg">
                         <div class="flex items-center mb-6">
-                            <img src="https://source.unsplash.com/random/100x100/?man" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <img src="https://source.unsplash.com/random/100x100/?man,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
-                                <h4 class="text-xl font-bold">Андрій Петренко</h4>
+                                <h4 class="text-xl font-bold text-white">Андрій Петренко</h4>
                                 <div class="text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -125,14 +148,12 @@
                             "Замовляли корпоративну зйомку для нашої компанії. Фотограф зумів передати атмосферу нашого колективу та зробити якісні фото для сайту. Дуже професійний підхід та приємне спілкування!"
                         </p>
                     </div>
-                </div>
 
-                <div class="testimonial hidden">
-                    <div class="bg-black p-8 rounded-lg max-w-3xl mx-auto">
+                    <div class="testimonial-card bg-black p-8 rounded-lg">
                         <div class="flex items-center mb-6">
-                            <img src="https://source.unsplash.com/random/100x100/?girl" alt="Client" class="w-16 h-16 rounded-full mr-4">
+                            <img src="https://source.unsplash.com/random/100x100/?girl,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
-                                <h4 class="text-xl font-bold">Марія Сидоренко</h4>
+                                <h4 class="text-xl font-bold text-white">Марія Сидоренко</h4>
                                 <div class="text-yellow-400">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -147,36 +168,45 @@
                         </p>
                     </div>
                 </div>
-
-                <button class="testimonial-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-yellow-400 text-black p-2 rounded-full focus:outline-none">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="testimonial-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-yellow-400 text-black p-2 rounded-full focus:outline-none">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-                <div class="flex justify-center mt-8 space-x-2">
-                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none active"></button>
-                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none"></button>
-                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-600 focus:outline-none"></button>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="py-20 bg-gray-900"> <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">ГОТОВІ ДО СПІВПРАЦІ?</h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Залиште заявку і я зв'яжусь з вами для обговорення деталей</p>
+                <a href="contact.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                    Замовити зйомку
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-black py-12">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="text-2xl font-bold text-yellow-400">PHOTOVISION</a>
+                    <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                        <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
+                    </a>
                     <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
                 </div>
 
-                <div class="flex space-x-6">
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
                     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">Головна</a>
-                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Портфоліо</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-yellow-400 transition">Галерея & Послуги</a>
                     <a href="about.html" class="text-gray-400 hover:text-yellow-400 transition">Про мене</a>
-                    <a href="services.html" class="text-gray-400 hover:text-yellow-400 transition">Послуги</a>
                     <a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition">Контакти</a>
                 </div>
             </div>

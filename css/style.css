@@ -1,107 +1,441 @@
+/* Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
+:root {
+  --primary: #f59e0b; /* Bright yellow/orange */
+  --primary-hover: #e6900a; /* Darker shade for hover */
+  --dark-bg: #000000; /* Main background black */
+  --dark-card: #111111; /* Dark background for cards, slightly lighter than main bg */
+  --dark-section: #111827; /* Dark background for sections (Tailwind gray-900) */
+  --darker-section: #0a0e1a; /* Even darker for some sections */
+  --light-text: #f3f4f6; /* Light text (Tailwind gray-100) */
+  --gray-text: #6b7280; /* Medium gray text (Tailwind gray-500) */
+  --dark-gray-text: #374151; /* Darker gray text/elements (Tailwind gray-700) */
+  --dark-accent: #1a1a1a; /* Dark accent for borders, gradients */
+  --gradient-dark-accent: #2d2d2d; /* Partner for dark-accent in gradients */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
-.animate-fade-in {
-    animation: fadeIn 1.5s ease-in-out;
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: white; /* Default heading color */
 }
 
-.animate-fade-in-up {
-    animation: fadeInUp 1.5s ease-in-out;
+h1 {
+  font-size: 3.5rem;
 }
 
-.animate-bounce-in {
-    animation: bounceIn 1s ease-in-out;
+h2 {
+  font-size: 2.5rem;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+h3 {
+  font-size: 1.75rem;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+p {
+  color: var(--gray-text); /* Default paragraph color */
 }
 
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); }
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.animate-bounce {
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
-}
-
-.portfolio-item {
-    transition: all 0.3s ease;
-}
-
-.view-more-btn {
-    background: transparent;
-    border: 2px solid #f59e0b;
-    color: #f59e0b;
-    padding: 8px 20px;
-    border-radius: 9999px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.view-more-btn:hover {
-    background: #f59e0b;
-    color: #000;
-}
-
-.testimonial.active {
-    display: block;
-}
-
-.testimonial.hidden {
-    display: none;
-}
-
-.testimonial-dot.active {
-    background: #f59e0b !important;
-}
-
-#imageModal {
-    transition: opacity 0.3s ease;
+/* Header */
+header {
+  background-color: rgba(0, 0, 0, 0.95) !important; /* Overrides Tailwind bg-opacity if needed */
+  border-bottom: none;
+  box-shadow: none;
+  padding: 12px 0; /* Approx 0.75rem */
+  height: 60px; /* Consistent header height */
+  transition: padding 0.3s ease-in-out; /* Smooth transition for scroll effect */
 }
 
 header.scrolled {
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.95);
+  padding: 0.5rem 0;
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Subtle shadow on scroll */
 }
 
+.nav-link {
+  position: relative;
+  color: white; /* Default nav link color */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link.text-yellow-400 { /* For active page link, Tailwind class */
+    color: var(--primary) !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.text-yellow-400::after { /* Show underline for active link as well */
+  width: 100%;
+}
+
+
+/* Hero Section Specifics (from index.html) */
+.hero-video {
+  filter: brightness(0.7);
+}
+
+/* Buttons */
+.btn { /* Base button style if needed, Tailwind usually handles this */
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary { /* Example, use Tailwind bg-yellow-400 for primary buttons */
+  background-color: var(--primary);
+  color: var(--dark-bg); /* Black text on yellow button */
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.btn-outline { /* Example for outline buttons */
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--dark-bg);
+}
+
+.btn-glow {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); /* var(--primary) with alpha */
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.8); /* var(--primary) with alpha */
+  transform: translateY(-3px);
+}
+
+/* Filter Buttons (from portfolio.html) */
+.filter-buttons {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.filter-buttons::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  background-color: var(--dark-gray-text); /* Default bg */
+  color: white;
+}
+
+.filter-btn:hover {
+    background-color: var(--gray-text);
+}
+
+.filter-btn.active {
+  background-color: var(--primary);
+  color: var(--dark-bg); /* Black text */
+}
+
+
+/* Cards - Standardized Hover Effect */
+.service-card,
+.testimonial-card,
+.feature-card { /* Tailwind classes like bg-gray-800 or bg-black define base bg */
+  transition: all 0.3s ease;
+}
+
+.service-card:hover,
+.testimonial-card:hover,
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1); /* var(--primary) with alpha */
+}
+
+/* Specific Card Styles */
+.service-card {
+  background-color: var(--dark-card); /* #111 */
+  padding: 2rem; /* p-8 */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+.service-icon { /* Used within service-card */
+  font-size: 2.25rem; /* text-4xl */
+  color: var(--primary);
+  margin-bottom: 1rem; /* mb-4 */
+}
+.service-price { /* Used within service-card */
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold;
+  color: var(--primary);
+  margin: 1rem 0; /* my-4 */
+}
+
+.testimonial-card {
+    background-color: var(--dark-bg); /* bg-black in HTML */
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+}
+
+.feature-card { /* Base styles set by Tailwind bg-gray-800 p-8 rounded-lg */
+    /* Hover is handled by the common card hover above */
+}
+
+
+/* Photo Frame (from portfolio.html, about.html) */
+.photo-frame {
+  border: 10px solid var(--dark-accent); /* #1a1a1a */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  border-radius: 0.5rem; /* Typically combined with rounded-lg in HTML */
+  overflow: hidden;     /* Ensure image respects border radius */
+}
+
+.photo-frame:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2); /* var(--primary) with alpha */
+}
+
+/* Gallery Grid (from portfolio.html, contact.html, style.css) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 200px;
+  grid-gap: 1rem; /* Standardized from 15px */
+  grid-auto-flow: dense;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem; /* Standardized from 8px */
+  transition: all 0.3s ease; /* Keep 'all' for smooth combined transitions */
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); /* Stronger shadow from portfolio.html */
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Collection Styles */
+.collection-header { /* For hero-like sections on portfolio/contact */
+  background: linear-gradient(135deg, var(--dark-accent) 0%, var(--gradient-dark-accent) 100%);
+  padding: 5rem 0; /* from style.css */
+  /* margin-bottom: 3rem; /* from style.css - might be too specific globally, handle with Tailwind mb-* */
+}
+
+.collection-item { /* from contact.html & style.css */
+  margin-bottom: 5rem; /* from style.css */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.collection-item:hover { /* from contact.html */
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline (from about.html) */
+.timeline {
+    position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 32px; /* Adjust if icon size changes */
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--dark-gray-text); /* #333 equivalent */
+}
+
+.timeline-item { /* Parent needs relative positioning if this is absolute */
+    /* Ensure .timeline-item in HTML has `relative` class or style */
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -38px; /* (Icon width + border) / 2 relative to timeline line */
+  top: 0; /* Align with top of text content */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--dark-bg); /* Match page background */
+}
+
+/* Skills Bar (from about.html) */
+.skill-bar {
+  height: 8px;
+  background: var(--dark-gray-text); /* #333 equivalent */
+  border-radius: 4px;
+  overflow: hidden; /* To make progress bar respect border-radius */
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 4px; /* Match parent for smooth edges */
+  background: linear-gradient(90deg, var(--primary), var(--primary-hover)); /* Example gradient */
+}
+
+/* Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn { /* Example, if used */
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Mobile Menu - Assuming Tailwind handles show/hide with 'hidden' class */
+.mobile-menu {
+  /* Styles for the mobile menu container if needed beyond Tailwind */
+  /* max-height and overflow are handled by JS adding/removing 'hidden' which sets display: none */
+}
+
+
+/* Utility Classes (already well covered by Tailwind) */
+.text-primary {
+  color: var(--primary);
+}
+
+/* Responsive Adjustments (Tailwind handles most of this with responsive prefixes) */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-    
-    .hero p {
-        font-size: 1.1rem;
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  /* Adjust timeline positioning for smaller screens if necessary */
+  .timeline::before {
+    left: 10px; /* Example: if padding changes */
+  }
+  .timeline-item::before {
+    left: -15px; /* Example adjustment */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  .gallery-item.wide,
+  .gallery-item.tall,
+  .gallery-item.large {
+    grid-column: span 1; /* Reset spans for single column */
+    grid-row: span 1;
+  }
 }
