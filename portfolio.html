@@ -190,22 +190,42 @@
         </section>
 
         <!-- Collections Navigation -->
-        <section class="filter-section py-8 bg-gray-900 sticky top-0 z-30 shadow-lg">
-            <div class="container mx-auto px-6">
-                <div class="flex overflow-x-auto space-x-4 pb-2 scrollbar-hide">
-                    <button class="filter-btn active px-6 py-2 rounded-full whitespace-nowrap" data-category="all">
+        <section class="filter-section sticky top-0 z-30 bg-gray-950/90 backdrop-blur-sm py-3 shadow-lg">
+            <div class="container mx-auto px-4">
+                <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide md:justify-center">
+                    <!-- Active button has primary color, others - subtle with hover effect -->
+                    <button class="filter-btn active whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all
+                                  bg-amber-600 text-white hover:bg-amber-700
+                                  md:px-5 md:py-2"
+                            data-category="all">
                         Усі роботи
                     </button>
-                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="wedding">
+
+                    <button class="filter-btn whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all
+                                  bg-gray-800/60 text-gray-200 hover:bg-gray-700/80 hover:text-white
+                                  md:px-5 md:py-2"
+                            data-category="wedding">
                         Весільні зйомки
                     </button>
-                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="portrait">
+
+                    <button class="filter-btn whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all
+                                  bg-gray-800/60 text-gray-200 hover:bg-gray-700/80 hover:text-white
+                                  md:px-5 md:py-2"
+                            data-category="portrait">
                         Портрети
                     </button>
-                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="fashion">
+
+                    <button class="filter-btn whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all
+                                  bg-gray-800/60 text-gray-200 hover:bg-gray-700/80 hover:text-white
+                                  md:px-5 md:py-2"
+                            data-category="fashion">
                         Фешн
                     </button>
-                    <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="travel">
+
+                    <button class="filter-btn whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all
+                                  bg-gray-800/60 text-gray-200 hover:bg-gray-700/80 hover:text-white
+                                  md:px-5 md:py-2"
+                            data-category="travel">
                         Подорожі
                     </button>
                 </div>
