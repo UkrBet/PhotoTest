@@ -15,7 +15,6 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #0a0a0a;
             color: #f8f8f8;
-            scroll-behavior: smooth;
         }
 
         .gradient-text {
@@ -115,11 +114,35 @@
 
         .filter-btn {
             transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .filter-btn.active {
             background: linear-gradient(135deg, #f59e0b, #f97316);
             color: #000;
+            border-color: #f59e0b;
+        }
+
+        /* Mobile menu animation */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        #mobile-menu.show {
+            max-height: 500px;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
@@ -167,7 +190,7 @@
         </section>
 
         <!-- Collections Navigation -->
-        <section class="py-8 bg-gray-900 sticky top-0 z-30 shadow-lg">
+        <section class="filter-section py-8 bg-gray-900 sticky top-0 z-30 shadow-lg">
             <div class="container mx-auto px-6">
                 <div class="flex overflow-x-auto space-x-4 pb-2 scrollbar-hide">
                     <button class="filter-btn active px-6 py-2 rounded-full whitespace-nowrap" data-category="all">
@@ -193,7 +216,7 @@
         <section class="py-16 bg-black">
             <div class="container mx-auto px-6">
                 <!-- Wedding Collection -->
-                <div class="mb-20" data-category="wedding">
+                <div class="mb-20 filter-item" data-category="wedding">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
                             <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Весільна фотосесія</h2>
@@ -233,7 +256,7 @@
                 </div>
 
                 <!-- Portrait Collection -->
-                <div class="mb-20" data-category="portrait">
+                <div class="mb-20 filter-item" data-category="portrait">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
                             <div class="card rounded-xl overflow-hidden">
@@ -270,7 +293,7 @@
                 </div>
 
                 <!-- Fashion Collection -->
-                <div class="mb-20" data-category="fashion">
+                <div class="mb-20 filter-item" data-category="fashion">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
                             <div class="card rounded-xl overflow-hidden">
@@ -307,7 +330,7 @@
                 </div>
 
                 <!-- Travel Collection -->
-                <div class="mb-20" data-category="travel">
+                <div class="mb-20 filter-item" data-category="travel">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
                             <div class="card rounded-xl overflow-hidden">
@@ -443,41 +466,96 @@
     </footer>
 
     <script>
+      document.addEventListener('DOMContentLoaded', () => {
         // Filter collections
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const category = this.getAttribute('data-category');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const filterItems = document.querySelectorAll('.filter-item'); // ❗️Лише фільтровані елементи
+        const filterSection = document.querySelector('.filter-section');
+        let currentFilter = 'all';
 
-                // Update active button
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active', 'bg-yellow-400', 'text-black');
-                    btn.classList.add('bg-gray-800', 'text-white');
-                });
-                this.classList.remove('bg-gray-800', 'text-white');
-                this.classList.add('active', 'bg-yellow-400', 'text-black');
+        filterButtons.forEach(button => {
+          button.addEventListener('click', function () {
+            const category = this.getAttribute('data-category');
 
-                // Filter collections
-                document.querySelectorAll('[data-category]').forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+            if (currentFilter === category) {
+              currentFilter = 'all';
+              filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('bg-gray-800', 'text-white');
+              });
+              document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+              document.querySelector('.filter-btn[data-category="all"]').classList.remove('bg-gray-800', 'text-white');
+            } else {
+              currentFilter = category;
+              filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('bg-gray-800', 'text-white');
+              });
+              this.classList.add('active');
+              this.classList.remove('bg-gray-800', 'text-white');
+            }
+
+            // Показуємо/ховаємо тільки фільтровані елементи (без кнопок)
+            filterItems.forEach(item => {
+              if (currentFilter === 'all' || item.getAttribute('data-category') === currentFilter) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
             });
+
+            // Плавне прокручування до фільтрів
+            filterSection.style.display = 'block';
+            filterSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
         });
 
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('show');
+
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            } else {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            }
+          });
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (mobileMenu) {
+              mobileMenu.classList.remove('show');
+              mobileMenu.classList.add('hidden');
+              const icon = mobileMenuButton.querySelector('i');
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          });
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
         });
+      });
     </script>
 </body>
 </html>
