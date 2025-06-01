@@ -6,23 +6,126 @@
     <title>Фотограф | Про мене</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f8f8f8;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1),
+                        0 10px 10px -5px rgba(245, 158, 11, 0.04);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .photo-frame {
+            border: 10px solid #1a1a1a;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2);
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            border: 3px solid #0a0a0a;
+        }
+    </style>
 </head>
-<body class="bg-black text-white font-sans">
-    <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+<body class="antialiased">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold gradient-text flex items-center">
                 <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
             </a>
 
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Головна</a>
-                <a href="portfolio.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Галерея & Послуги</a>
-                <a href="about.html" class="nav-link text-yellow-400 font-bold transition">Про мене</a>
-                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Контакти</a>
+                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Головна</a>
+                <a href="portfolio.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Галерея & Послуги</a>
+                <a href="about.html" class="nav-link font-bold text-yellow-400 font-medium transition">Про мене</a>
+                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Контакти</a>
             </nav>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -30,41 +133,39 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
-            <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
-            <a href="portfolio.html" class="block py-2 hover:text-yellow-400 transition">Галерея & Послуги</a>
-            <a href="about.html" class="block py-2 text-yellow-400 transition">Про мене</a>
-            <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 py-4 px-6 border-t border-gray-800">
+            <a href="index.html" class="block py-3 hover:text-yellow-400 transition border-b border-gray-800">Головна</a>
+            <a href="portfolio.html" class="block py-3 hover:text-yellow-400 transition border-b border-gray-800">Галерея & Послуги</a>
+            <a href="about.html" class="block py-3 text-yellow-400 transition border-b border-gray-800">Про мене</a>
+            <a href="contact.html" class="block py-3 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
-    <main class="pt-16"> <section class="relative py-32 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
-            <div class="absolute inset-0 opacity-20">
-                <div class="absolute inset-0 bg-black"></div>
-                <img src="assets/photos/portfolio_back.png" alt="Background" class="w-full h-full object-cover opacity-70">
-            </div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Моя історія</h1>
-                    <p class="text-xl text-gray-300 mb-8">Професійний фотограф з любов'ю до мистецтва та деталей</p>
-                    <a href="contact.html" class="btn-glow bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg inline-block transition duration-300">
-                        Напишіть мені
-                    </a>
-                </div>
+    <!-- Main Content -->
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-0"></div>
+            <div class="container mx-auto px-6 py-16 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Моя історія</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Професійний фотограф з любов'ю до мистецтва та деталей</p>
             </div>
         </section>
 
+        <!-- About Section -->
         <section class="py-20 bg-black" id="about">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2">
-                        <div class="photo-frame rounded-lg overflow-hidden">
+                        <div class="photo-frame rounded-xl overflow-hidden">
                             <img src="https://source.unsplash.com/random/600x800/?photographer,portrait" alt="Photographer" class="w-full h-auto">
                         </div>
                     </div>
 
                     <div class="lg:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-yellow-400">Хто я?</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">Хто я?</h2>
                         <p class="text-gray-300 mb-6 text-lg">
                             Привіт! Мене звати Олексій, і я професійний фотограф з Києва. Моя подорож у світ фотографії почалася 8 років тому, коли я вперше взяв у руки камеру і зрозумів, що це моє покликання.
                         </p>
@@ -76,25 +177,25 @@
                         </p>
 
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                            <div class="bg-gray-900 p-4 rounded-lg text-center">
-                                <div class="text-yellow-400 text-3xl font-bold mb-2">250+</div>
+                            <div class="card p-4 rounded-xl text-center">
+                                <div class="gradient-text text-3xl font-bold mb-2">250+</div>
                                 <div class="text-gray-400 text-sm">Задоволених клієнтів</div>
                             </div>
-                            <div class="bg-gray-900 p-4 rounded-lg text-center">
-                                <div class="text-yellow-400 text-3xl font-bold mb-2">8</div>
+                            <div class="card p-4 rounded-xl text-center">
+                                <div class="gradient-text text-3xl font-bold mb-2">8</div>
                                 <div class="text-gray-400 text-sm">Років досвіду</div>
                             </div>
-                            <div class="bg-gray-900 p-4 rounded-lg text-center">
-                                <div class="text-yellow-400 text-3xl font-bold mb-2">15+</div>
+                            <div class="card p-4 rounded-xl text-center">
+                                <div class="gradient-text text-3xl font-bold mb-2">15+</div>
                                 <div class="text-gray-400 text-sm">Країн</div>
                             </div>
                         </div>
 
                         <div class="flex flex-wrap gap-4">
-                            <a href="contact.html" class="btn-glow bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                            <a href="contact.html" class="btn-primary text-black font-bold py-4 px-8 rounded-xl">
                                 Замовити зйомку
                             </a>
-                            <a href="portfolio.html" class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full transition duration-300">
+                            <a href="portfolio.html" class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-4 px-8 rounded-xl transition">
                                 Мої роботи
                             </a>
                         </div>
@@ -103,15 +204,16 @@
             </div>
         </section>
 
-        <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-4">
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-black">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Відгуки клієнтів</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Відгуки клієнтів</h2>
                     <p class="text-gray-400 max-w-2xl mx-auto">Що говорять люди про співпрацю зі мною</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="testimonial-card bg-black p-8 rounded-lg">
+                    <div class="card p-8 rounded-xl">
                         <div class="flex items-center mb-6">
                             <img src="https://source.unsplash.com/random/100x100/?woman,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
@@ -130,7 +232,7 @@
                         </p>
                     </div>
 
-                    <div class="testimonial-card bg-black p-8 rounded-lg">
+                    <div class="card p-8 rounded-xl">
                         <div class="flex items-center mb-6">
                             <img src="https://source.unsplash.com/random/100x100/?man,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
@@ -149,7 +251,7 @@
                         </p>
                     </div>
 
-                    <div class="testimonial-card bg-black p-8 rounded-lg">
+                    <div class="card p-8 rounded-xl">
                         <div class="flex items-center mb-6">
                             <img src="https://source.unsplash.com/random/100x100/?girl,portrait" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                             <div>
@@ -171,21 +273,24 @@
             </div>
         </section>
 
-        <section class="py-20 bg-gray-900"> <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">ГОТОВІ ДО СПІВПРАЦІ?</h2>
+        <!-- CTA Section -->
+        <section class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 gradient-text">Готові до співпраці?</h2>
                 <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Залиште заявку і я зв'яжусь з вами для обговорення деталей</p>
-                <a href="contact.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                <a href="contact.html" class="btn-primary text-black font-bold py-4 px-8 rounded-xl text-lg inline-block">
                     Замовити зйомку
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-black py-12">
-        <div class="container mx-auto px-4">
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text flex items-center">
                         <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
                     </a>
                     <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
@@ -195,10 +300,10 @@
                     <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition text-2xl">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition text-2xl">
                         <i class="fab fa-behance"></i>
                     </a>
                 </div>

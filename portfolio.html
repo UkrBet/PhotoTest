@@ -9,14 +9,45 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Common Styles */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #000;
-            color: white;
+            background-color: #0a0a0a;
+            color: #f8f8f8;
             scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1),
+                        0 10px 10px -5px rgba(245, 158, 11, 0.04);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(245, 158, 11, 0.3);
         }
 
         .nav-link {
@@ -30,7 +61,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #f59e0b;
+            background: linear-gradient(90deg, #f59e0b, #f97316);
             transition: width 0.3s ease;
         }
 
@@ -38,26 +69,6 @@
             width: 100%;
         }
 
-        .btn-glow {
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .btn-glow:hover {
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
-            transform: translateY(-3px);
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Portfolio Specific Styles */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -102,53 +113,29 @@
             transform: scale(1.05);
         }
 
-        .collection-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-
-        .service-card {
-            transition: all 0.3s ease;
-            background-color: #111;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.1);
-        }
-
         .filter-btn {
             transition: all 0.3s ease;
         }
 
         .filter-btn.active {
-            background-color: #f59e0b;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: #000;
-        }
-
-        .photo-frame {
-            border: 10px solid #1a1a1a;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .photo-frame:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.2);
         }
     </style>
 </head>
-<body class="bg-black text-white font-sans">
-    <header class="fixed w-full z-50 bg-black bg-opacity-90 transition-all duration-300">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+<body class="antialiased">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm transition-all duration-300 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold gradient-text flex items-center">
                 <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
             </a>
 
             <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Головна</a>
-                <a href="portfolio.html" class="nav-link text-yellow-400 font-bold transition">Галерея & Послуги</a>
-                <a href="about.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Про мене</a>
-                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-bold transition">Контакти</a>
+                <a href="index.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Головна</a>
+                <a href="portfolio.html" class="nav-link font-bold text-yellow-400 font-medium transition">Галерея & Послуги</a>
+                <a href="about.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Про мене</a>
+                <a href="contact.html" class="nav-link text-white hover:text-yellow-400 font-medium transition">Контакти</a>
             </nav>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -156,29 +143,34 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-black py-4 px-4">
-            <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Головна</a>
-            <a href="portfolio.html" class="block py-2 text-yellow-400 transition">Галерея & Послуги</a>
-            <a href="about.html" class="block py-2 hover:text-yellow-400 transition">Про мене</a>
-            <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Контакти</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 py-4 px-6 border-t border-gray-800">
+            <a href="index.html" class="block py-3 hover:text-yellow-400 transition border-b border-gray-800">Головна</a>
+            <a href="portfolio.html" class="block py-3 text-yellow-400 transition border-b border-gray-800">Галерея & Послуги</a>
+            <a href="about.html" class="block py-3 hover:text-yellow-400 transition border-b border-gray-800">Про мене</a>
+            <a href="contact.html" class="block py-3 hover:text-yellow-400 transition">Контакти</a>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="pt-32 pb-20">
         <!-- Hero Section -->
-        <section class="relative py-20 collection-header">
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 z-0" style="background-image: url('assets/photos/portfolio_back.png');"></div>
-            <div class="relative z-10 container mx-auto px-4 text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Мої роботи</h1>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Кожна фотосесія - це унікальна історія, яку я допомагаю розповісти</p>
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-0"></div>
+            <div class="container mx-auto px-6 py-16 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Мої роботи</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Кожна фотосесія - це унікальна історія, яку я допомагаю розповісти
+                </p>
             </div>
         </section>
 
         <!-- Collections Navigation -->
         <section class="py-8 bg-gray-900 sticky top-0 z-30 shadow-lg">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-6">
                 <div class="flex overflow-x-auto space-x-4 pb-2 scrollbar-hide">
-                    <button class="filter-btn active px-6 py-2 bg-yellow-400 text-black font-bold rounded-full whitespace-nowrap" data-category="all">
+                    <button class="filter-btn active px-6 py-2 rounded-full whitespace-nowrap" data-category="all">
                         Усі роботи
                     </button>
                     <button class="filter-btn px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap transition" data-category="wedding">
@@ -199,12 +191,12 @@
 
         <!-- Collections Gallery -->
         <section class="py-16 bg-black">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-6">
                 <!-- Wedding Collection -->
                 <div class="mb-20" data-category="wedding">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Весільна фотосесія</h2>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Весільна фотосесія</h2>
                             <p class="text-gray-300 mb-6">Ніжні та емоційні кадри вашого особливого дня. Я допомагаю зберегти найщасливіші моменти вашого весілля.</p>
                             <div class="flex items-center">
                                 <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Весільна фотографія</span>
@@ -212,8 +204,8 @@
                             </div>
                         </div>
                         <div class="md:w-1/2">
-                            <div class="photo-frame rounded-lg overflow-hidden">
-                                <img src="assets/photos/portfolio_back.png" alt="Wedding" class="w-full h-auto">
+                            <div class="card rounded-xl overflow-hidden">
+                                <img src="https://source.unsplash.com/random/800x500/?wedding" alt="Wedding" class="w-full h-auto">
                             </div>
                         </div>
                     </div>
@@ -244,12 +236,12 @@
                 <div class="mb-20" data-category="portrait">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
-                            <div class="photo-frame rounded-lg overflow-hidden">
+                            <div class="card rounded-xl overflow-hidden">
                                 <img src="https://source.unsplash.com/random/800x500/?portrait" alt="Portrait" class="w-full h-auto">
                             </div>
                         </div>
                         <div class="md:w-1/2">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Портретна зйомка</h2>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Портретна зйомка</h2>
                             <p class="text-gray-300 mb-6">Індивідуальні портрети, які розкривають характер та індивідуальність. Ідеально для профілів у соцмережах або особистого архіву.</p>
                             <div class="flex items-center">
                                 <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Портрет</span>
@@ -281,12 +273,12 @@
                 <div class="mb-20" data-category="fashion">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
-                            <div class="photo-frame rounded-lg overflow-hidden">
+                            <div class="card rounded-xl overflow-hidden">
                                 <img src="https://source.unsplash.com/random/800x500/?fashion" alt="Fashion" class="w-full h-auto">
                             </div>
                         </div>
                         <div class="md:w-1/2">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Фешн-зйомка</h2>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Фешн-зйомка</h2>
                             <p class="text-gray-300 mb-6">Стильні та креативні зйомки для брендів одягу, аксесуарів або персональних проектів.</p>
                             <div class="flex items-center">
                                 <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Фешн</span>
@@ -318,12 +310,12 @@
                 <div class="mb-20" data-category="travel">
                     <div class="flex flex-col md:flex-row items-center mb-12 gap-8">
                         <div class="md:w-1/2">
-                            <div class="photo-frame rounded-lg overflow-hidden">
+                            <div class="card rounded-xl overflow-hidden">
                                 <img src="https://source.unsplash.com/random/800x500/?travel" alt="Travel" class="w-full h-auto">
                             </div>
                         </div>
                         <div class="md:w-1/2">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Подорожі та природа</h2>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Подорожі та природа</h2>
                             <p class="text-gray-300 mb-6">Неймовірні краєвиди та атмосферні кадри з подорожей по Україні та світу.</p>
                             <div class="flex items-center">
                                 <span class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mr-3">Подорожі</span>
@@ -355,13 +347,13 @@
 
         <!-- Services Section -->
         <section class="py-20 bg-gray-900">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">ПОСЛУГИ</h2>
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-4 gradient-text">Послуги</h2>
                 <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Я пропоную професійні фотосесії для різних подій та потреб</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-card p-8 rounded-lg">
-                        <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="card p-8 rounded-xl">
+                        <div class="text-4xl mb-4 gradient-text">
                             <i class="fas fa-ring"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">ВЕСІЛЬНА ФОТОГРАФІЯ</h3>
@@ -369,13 +361,13 @@
                             Повний супровід вашого весілля від ранкових приготувань до першого танцю
                         </p>
                         <div class="text-yellow-400 text-xl font-bold mb-4">від 5000 грн</div>
-                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-3 rounded-xl transition">
                             Детальніше
                         </button>
                     </div>
 
-                    <div class="service-card p-8 rounded-lg">
-                        <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="card p-8 rounded-xl">
+                        <div class="text-4xl mb-4 gradient-text">
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">ПОРТРЕТНА ЗЙОМКА</h3>
@@ -383,13 +375,13 @@
                             Індивідуальні та групові портрети в студії або на природі
                         </p>
                         <div class="text-yellow-400 text-xl font-bold mb-4">від 2000 грн</div>
-                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-3 rounded-xl transition">
                             Детальніше
                         </button>
                     </div>
 
-                    <div class="service-card p-8 rounded-lg">
-                        <div class="text-yellow-400 text-4xl mb-4">
+                    <div class="card p-8 rounded-xl">
+                        <div class="text-4xl mb-4 gradient-text">
                             <i class="fas fa-tshirt"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">ФЕШЕН ЗЙОМКА</h3>
@@ -397,7 +389,7 @@
                             Професійні зйомки для брендів одягу, аксесуарів та lookbook'ів
                         </p>
                         <div class="text-yellow-400 text-xl font-bold mb-4">від 3000 грн</div>
-                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-2 rounded-full transition">
+                        <button class="w-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black py-3 rounded-xl transition">
                             Детальніше
                         </button>
                     </div>
@@ -407,21 +399,22 @@
 
         <!-- CTA Section -->
         <section class="py-20 bg-black">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">ГОТОВІ ДО СПІВПРАЦІ?</h2>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 gradient-text">Готові до співпраці?</h2>
                 <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Залиште заявку і я зв'яжусь з вами для обговорення деталей</p>
-                <a href="contact.html" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-lg transition btn-glow">
+                <a href="contact.html" class="btn-primary text-black font-bold py-4 px-8 rounded-xl text-lg inline-block">
                     Замовити зйомку
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-black py-12">
-        <div class="container mx-auto px-4">
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="index.html" class="text-2xl font-bold text-yellow-400 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text flex items-center">
                         <i class="fas fa-camera-retro mr-2"></i> PHOTOVISION
                     </a>
                     <p class="text-gray-400 mt-2">© 2023 Всі права захищені</p>
@@ -431,10 +424,10 @@
                     <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition text-2xl">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition text-2xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-600 transition text-2xl">
                         <i class="fab fa-behance"></i>
                     </a>
                 </div>
@@ -457,11 +450,11 @@
 
                 // Update active button
                 document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('bg-yellow-400', 'text-black');
+                    btn.classList.remove('active', 'bg-yellow-400', 'text-black');
                     btn.classList.add('bg-gray-800', 'text-white');
                 });
                 this.classList.remove('bg-gray-800', 'text-white');
-                this.classList.add('bg-yellow-400', 'text-black');
+                this.classList.add('active', 'bg-yellow-400', 'text-black');
 
                 // Filter collections
                 document.querySelectorAll('[data-category]').forEach(item => {
@@ -484,16 +477,6 @@
             link.addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-lg');
-            } else {
-                header.classList.remove('shadow-lg');
-            }
         });
     </script>
 </body>
